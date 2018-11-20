@@ -7,6 +7,7 @@ import { HomePage } from '../home/home.page';
 import { AboutPage } from '../about/about.page';
 import { ContactPage } from '../contact/contact.page';
 import { CategoryPage } from '../category/category.page';
+import { CategoriesPage } from './../categories/categories.page';
 
 
 const routes: Routes = [
@@ -33,6 +34,11 @@ const routes: Routes = [
         path: 'category',
         outlet: 'category',
         component: CategoryPage
+      },
+      {
+        path: 'categories',
+        outlet: 'categories',
+        component : CategoriesPage
       }
     ]
   }, 

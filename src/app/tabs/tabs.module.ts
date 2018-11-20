@@ -11,6 +11,7 @@ import { ContactPageModule } from '../contact/contact.module';
 import { AboutPageModule } from '../about/about.module';
 import { HomePageModule } from '../home/home.module';
 import { CategoryPageModule } from '../category/category.module';
+import { CategoriesPageModule } from './../categories/categories.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { CategoryPageModule } from '../category/category.module';
     AboutPageModule,
     ContactPageModule,
     CategoryPageModule,
+    CategoriesPageModule,
     RouterModule,
   ],
   declarations: [TabsPage]

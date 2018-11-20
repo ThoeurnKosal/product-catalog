@@ -12,10 +12,11 @@ import { AppComponent } from './app.component';
 import { ApiModule } from './../@swagger/api.module';
 import { Configuration } from './../@swagger';
 
+// export swagger
 export function apiConfig() {
   return new Configuration({
       apiKeys: {
-        'Authorization': ''
+        'Authorization': localStorage.getItem('accessToken')
       }
   });
 }
