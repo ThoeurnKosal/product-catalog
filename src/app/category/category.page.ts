@@ -1,33 +1,34 @@
 import { environment } from './../../environments/environment';
 import { CategoryControllerService } from './../../@swagger/api/categoryController.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , NgZone} from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.page.html',
   styleUrls: ['./category.page.scss'],
 })
-
 export class CategoryPage implements OnInit {
   apiUrl = environment.apiUrl;
   result;
   constructor(private _categoryCotroller: CategoryControllerService,
               private _alertController: AlertController,
-              private _router : Router) { }
+              private _router : Router,
+              private _ngZone: NgZone,  
+             ) { }
 
   ngOnInit() {
-    let filter = {
-      page: 1,
-      rowsPerPage: 100,
-      searchText: ''
-    };
-    this._categoryCotroller.getPublicCategoriesUsingPOST(filter).subscribe(result=> {
-      this.result = result;
-    }, error => {
-      console.log("error");
-    });
-
+      let filter = {
+        page: 1,
+        rowsPerPage: 100,
+        searchText: ''
+      };
+      this._categoryCotroller.getPublicCategoriesUsingPOST(filter).subscribe(result=> {
+        this.result = result;
+      }, error => {
+        console.log("error");
+      });
     }
 
     async delete(id) {
@@ -46,9 +47,11 @@ export class CategoryPage implements OnInit {
             text: 'Okay',
             handler: () => {
               this._categoryCotroller.deleteUsingPOST(id).subscribe(result => {
-                       this._router.navigateByUrl('tabs/tabs/(category:category)');
-                       console.log(result);
-                    // this.ngOnInit();
+                      this._ngZone.runOutsideAngular(() => {
+                          this._ngZone.run(() => { 
+                              this.ngOnInit();
+                          });
+                      });
                 }, error => {
                     console.log(error);
                 });
@@ -58,5 +61,12 @@ export class CategoryPage implements OnInit {
       });
       await alert.present();
     }
+
+    addCategory(){
+      this._router.navigateByUrl('/categories)');
+    }
+
+    
+    
 
 }

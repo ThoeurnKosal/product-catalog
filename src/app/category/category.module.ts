@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { CategoryPage } from './category.page';
 
+
+
 const routes: Routes = [
   {
     path: '',

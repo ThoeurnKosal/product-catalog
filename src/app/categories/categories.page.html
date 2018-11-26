@@ -1,9 +1,26 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>categories</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+      <ion-title>Add new category</ion-title>
+    </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
-   HELLO WORLD
-</ion-content>
+    <form [formGroup]="formGroup">
+        <ion-label>
+          <ion-list>
+                <ion-item>
+                  <ion-label position="floating">Category name</ion-label>
+                  <ion-input required type="text" formControlName="name" required></ion-input>
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label position="floating">Description</ion-label>
+                  <ion-textarea  type="text-area" formControlName="description"></ion-textarea>
+                </ion-item>
+
+                <ion-button color="success" expand="block" (click)="addNewCategory()">SAVE
+                </ion-button>
+          </ion-list>
+        </ion-label> 
+    </form>
+</ion-content>  
+
