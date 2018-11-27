@@ -1,9 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>CategoryDetail</ion-title>
-  </ion-toolbar>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Category Detail</ion-title>
+      </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
-
+        <ion-list>
+              <ion-text>
+                  <h5>Category name : </h5>
+                  <ion-label>{{category.name}}</ion-label>
+              </ion-text>
+              <ion-text>
+                  <h5>Image :</h5>
+                  <img id="picture" *ngIf="category.filename" [src]="apiUrl + category.filename">
+              </ion-text>
+              <ion-text>
+                  <h5>Description: </h5>
+                  <p style="text-align: justify">{{category.description}}</p>
+              </ion-text>
+        </ion-list>
 </ion-content>
+

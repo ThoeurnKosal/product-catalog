@@ -20,11 +20,13 @@ const routes: Routes = [
     loadChildren: './categories/categories.module#CategoriesPageModule'
   },
   { 
-    path: 'CategoryDetail', 
+    path: 'CategoryDetail/:id', 
     loadChildren: './category-detail/category-detail.module#CategoryDetailPageModule' 
   },
-
-  
+  { 
+    path: 'CategoryEdit/:id', 
+    loadChildren: './category-edit/category-edit.module#CategoryEditPageModule' 
+  },
  
 ];
 

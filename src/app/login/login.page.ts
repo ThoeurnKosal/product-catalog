@@ -37,8 +37,7 @@ export class LoginPage implements OnInit {
         const accessToken = 'Bearer ' + response.body['accessToken'];
         localStorage.setItem('accessToken', accessToken);
         this._configuration.apiKeys['Authorization'] = accessToken;
-        // this._router.navigate(['tabs', 'home']);
-        this._router.navigateByUrl('tabs/tabs/(home:home)');
+        this._router.navigateByUrl('tabs/tabs/(category:category)');
       } else {
         console.log("Invalid username and password!");
       }
