@@ -1,8 +1,9 @@
 import { environment } from './../../environments/environment';
 import { CategoryControllerService } from './../../@swagger/api/categoryController.service';
-import { Component, OnInit , NgZone} from '@angular/core';
+import { Component, OnInit , NgZone, ViewChildren} from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import {List} from '@ionic/angular';
 
 @Component({
   selector: 'app-category',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class CategoryPage implements OnInit {
   apiUrl = environment.apiUrl;
   result;
+  @ViewChildren('slidingList') slidingList: List;
   constructor(private _categoryCotroller: CategoryControllerService,
               private _alertController: AlertController,
               private _router : Router,
@@ -60,13 +62,23 @@ export class CategoryPage implements OnInit {
         ]
       });
       await alert.present();
+      // await this.slidingList.closeSlidingItems();
     }
+
+
+    view(){
+    
+    
+                // this.ngOnInit();
+                this._router.navigateByUrl('/CategoryDetail')
+      
+}
+    
+
+
 
     addCategory(){
       this._router.navigateByUrl('/categories)');
     }
-
-    
-    
 
 }

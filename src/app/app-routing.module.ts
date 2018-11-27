@@ -19,6 +19,11 @@ const routes: Routes = [
     path: 'categories',
     loadChildren: './categories/categories.module#CategoriesPageModule'
   },
+  { 
+    path: 'CategoryDetail', 
+    loadChildren: './category-detail/category-detail.module#CategoryDetailPageModule' 
+  },
+
   
  
 ];
