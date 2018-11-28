@@ -1,7 +1,12 @@
 <ion-header>
-      <ion-toolbar>
-          <ion-searchbar></ion-searchbar>
-        </ion-toolbar>
+      <!-- <ion-toolbar>
+          <ion-searchbar>
+            <input id="search" #filter placeholder="Search">
+          </ion-searchbar>
+        </ion-toolbar> -->
+        <label class="item item-input">
+            <input style="height: 45px; width: 100%;" type="search" id="search" #filter placeholder="Search">
+        </label>
 </ion-header>
 <ion-content padding>
         <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">

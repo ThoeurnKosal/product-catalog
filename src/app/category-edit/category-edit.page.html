@@ -9,13 +9,13 @@
 
   <ion-content padding>
     <form [formGroup]="formGroup">
-      <ion-text>
-        <h5>Category Name : </h5>
-        <ion-input type="text" formControlName="name" value = " {{ category.name }} "></ion-input>
-      </ion-text>
-      <ion-text>
-        <h5>Description :</h5>
-        <ion-textarea style="text-align:justify" rows="10" cols="50" type="text" formControlName="description" value="{{category.description}}"> </ion-textarea>
+        <ion-item>
+          <ion-label>Category Name :</ion-label>
+          <ion-input type="text" formControlName="name" value = " {{ category.name }} "></ion-input>
+        </ion-item>
+        <ion-text>
+            <h5>Description :</h5>
+            <ion-textarea style="text-align:justify" rows="10" cols="50" type="text" formControlName="description" value="{{category.description}}"> </ion-textarea>
         </ion-text>
       <ion-button color="success" expand="block" (click)="saveCategory()">Update</ion-button>
     </form>

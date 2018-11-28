@@ -53,7 +53,7 @@ export class CategoriesPage implements OnInit {
 
   addNewCategory(){
     const data = this.formGroup.getRawValue();
-    this._categoryControllerService.saveUsingPOST(data.name, data.description, null,).subscribe(result => {
+    this._categoryControllerService.saveUsingPOST(data.name, data.description, null, null).subscribe(result => {
         this._router.navigateByUrl('tabs/tabs/(category:category)');
         this.presentToast();
     }, error => {
@@ -61,5 +61,7 @@ export class CategoriesPage implements OnInit {
       this._router.navigateByUrl('/login');
     });
   }
+
+  
 
 }
